@@ -1,1 +1,2 @@
-# Web_Project_L51
+# CMPS 350 Web Development Course Project
+# Social Media Platform
