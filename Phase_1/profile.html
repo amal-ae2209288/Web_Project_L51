@@ -118,54 +118,9 @@
     </div>
   </div>
 
-  <script src="js/storage.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/profile.js"></script>
-  <script>
-    const me = requireLogin();
+<script>
 
-    const topAvatar = document.getElementById("topAvatar");
-    const topUser = document.getElementById("topUser");
-    const meAvatar = document.getElementById("meAvatar");
+</script>
 
-    function renderAvatar(el, user){
-      if (user.avatar){
-        el.innerHTML = "";
-        const img = document.createElement("img");
-        img.src = user.avatar;
-        el.appendChild(img);
-      } else {
-        el.textContent = initials(user.name);
-      }
-    }
-    renderAvatar(topAvatar, me);
-    renderAvatar(meAvatar, me);
-    topUser.textContent = "@" + me.username;
-
-    document.getElementById("meName").textContent = me.name;
-    document.getElementById("meHandle").textContent = "@" + me.username;
-    document.getElementById("meBio").textContent = me.bio || "";
-    document.getElementById("followingCount").textContent = me.following.length;
-         //
-    //Fill form
-    document.getElementById("name").value = me.name;
-    document.getElementById("bio").value = me.bio || "";
-    document.getElementById("avatar").value = me.avatar || "";
-
-    document.getElementById("saveBtn").onclick = () => {
-      try{
-        updateProfile({
-          name: document.getElementById("name").value,
-          bio: document.getElementById("bio").value,
-          avatar: document.getElementById("avatar").value
-        });
-        //Reload to reflect changes
-        window.location.reload();
-      }catch(e){
-        alert(e.message);
-      }
-    };
-  </script>
 </body>
 </html>

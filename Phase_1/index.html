@@ -78,35 +78,10 @@
     </div>
   </div>
 
-  <script src="js/storage.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/auth.js"></script>
-  <script>
+<script>
 
-    // If already logged in, go feed
-    if (getSessionUser()) window.location.href = "feed.html";
+</script>
 
-    const $ = (id) => document.getElementById(id);
-
-    $("loginBtn").onclick = () => {
-      try{
-        login({ username: $("loginUser").value, password: $("loginPass").value });
-        window.location.href = "feed.html";
-      }catch(e){ alert(e.message); }
-    };
-
-    $("signupBtn").onclick = () => {
-      try{
-        signup({
-          name: $("suName").value,
-          username: $("suUser").value,
-          password: $("suPass").value,
-          confirm: $("suConfirm").value
-        });
-        window.location.href = "feed.html";
-      }catch(e){ alert(e.message); }
-    };
-  </script>
 </body>
 
 </html>
