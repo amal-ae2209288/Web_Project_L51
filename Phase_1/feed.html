@@ -41,6 +41,44 @@
       </div>
     </div>
   </div>
+<!-- App -->
+  <div class="app">
+    <div class="container app-grid">
+      <!-- Sidebar -->
+      <aside class="card sidebar">
+        <div class="side-title">MENU</div>
+        <a class="side-item active" href="feed.html">
+          <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
+          Home
+        </a>
+        <a class="side-item" href="users.html">
+          <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
+          Explore
+        </a>
+        <a class="side-item" href="profile.html">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          Profile
+        </a>
+        <div class="hr"></div>
+        <div class="small muted">Tip: Follow users in Explore to see their posts here.</div>
+      </aside>
 
+      <!-- Main -->
+      <main class="card main">
+        <div class="page-title">
+          <h1>News Feed</h1>
+          <div class="right small muted" id="feedHint"></div>
+        </div>
+
+        <div class="card composer">
+          <span class="avatar" id="meAvatar">U</span>
+          <textarea id="postText" placeholder="What's happening?"></textarea>
+          <button class="btn" id="postBtn">Post</button>
+        </div>
+
+        <div class="feed" id="feed"></div>
+      </main>
+    </div>
+  </div>
 
 </body>
