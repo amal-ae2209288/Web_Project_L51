@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>SyncSpace • Profile</title>
+  <title> SyncSpace • Profile</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
@@ -13,6 +13,7 @@
     <div class="container topbar-inner">
     <div class="brand">
   <span class="mini" aria-hidden="true">
+
     <!-- SyncSpace Icon -->
     <svg viewBox="0 0 24 24">
       <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
@@ -57,7 +58,7 @@
           Explore
         </a>
         <a class="side-item active" href="profile.html">
-          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          <svg viewBox="0 0 24 24"> <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
           Profile
         </a>
       </aside>
@@ -86,7 +87,7 @@
           </div>
         </div>
 
-        <div class="hr"></div>
+        <div class="hr"> </div>
 
         <div class="card form">
           <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
@@ -105,9 +106,9 @@
             </div>
             <div>
               <label for="avatar">Profile picture URL (optional)</label>
-              <input class="input" id="avatar" placeholder="https://..." />
+              <input class="input" id="avatar" placeholder="https://...." />
               <div class="small muted" style="margin-top:6px;">
-                If you leave it empty, it will show initials (like the UI screenshot).
+                If you leave it empty, it will show initials(like the UI screenshot).
               </div>
             </div>
           </div>
@@ -117,6 +118,54 @@
     </div>
   </div>
 
- 
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+  <script>
+    const me = requireLogin();
+
+    const topAvatar = document.getElementById("topAvatar");
+    const topUser = document.getElementById("topUser");
+    const meAvatar = document.getElementById("meAvatar");
+
+    function renderAvatar(el, user){
+      if (user.avatar){
+        el.innerHTML = "";
+        const img = document.createElement("img");
+        img.src = user.avatar;
+        el.appendChild(img);
+      } else {
+        el.textContent = initials(user.name);
+      }
+    }
+    renderAvatar(topAvatar, me);
+    renderAvatar(meAvatar, me);
+    topUser.textContent = "@" + me.username;
+
+    document.getElementById("meName").textContent = me.name;
+    document.getElementById("meHandle").textContent = "@" + me.username;
+    document.getElementById("meBio").textContent = me.bio || "";
+    document.getElementById("followingCount").textContent = me.following.length;
+         //
+    //Fill form
+    document.getElementById("name").value = me.name;
+    document.getElementById("bio").value = me.bio || "";
+    document.getElementById("avatar").value = me.avatar || "";
+
+    document.getElementById("saveBtn").onclick = () => {
+      try{
+        updateProfile({
+          name: document.getElementById("name").value,
+          bio: document.getElementById("bio").value,
+          avatar: document.getElementById("avatar").value
+        });
+        //Reload to reflect changes
+        window.location.reload();
+      }catch(e){
+        alert(e.message);
+      }
+    };
+  </script>
 </body>
 </html>
