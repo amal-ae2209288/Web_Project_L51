@@ -7,6 +7,75 @@
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-    
+ <div class="topbar">
+    <div class="container topbar-inner">
+   <div class="brand">
+  <span class="mini" aria-hidden="true">
+    <!-- SyncSpace Icon -->
+    <svg viewBox="0 0 24 24">
+      <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
+    </svg>
+  </span>
+  <span>SyncSpace</span>
+</div>
+<div class="nav-links">
+        <a href="feed.html">
+          <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
+          Home
+        </a>
+        <a class="active" href="users.html">
+          <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
+          Explore
+        </a>
+        <a href="profile.html">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          Profile
+        </a>
+      </div>   
+        <div class="user-pill">
+        <span class="avatar" id="topAvatar">U</span>
+        <span class="small" id="topUser">@user</span>
+        <button class="btn btn-ghost" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+            <input class="input search" id="search" placeholder="Search users..."/>
+          </div>
+
+  <div class="app">
+    <div class="container app-grid">
+      <aside class="card sidebar">
+        <div class="side-title">MENU</div>
+        <a class="side-item" href="feed.html">
+          <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
+          Home
+        </a>
+        <a class="side-item active" href="users.html">
+          <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
+          Explore
+        </a>
+        <a class="side-item" href="profile.html">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          Profile
+        </a>
+      </aside>
+
+      <main class="card main">
+        <div class="page-title">
+          <h1>Discover Users</h1>
+          <div class="right">
+            <input class="input search" id="search" placeholder="Search users..."/>
+          </div>
+        </div>
+
+        <div class="user-list" id="list"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="right">
+            <input class="input search" id="search" placeholder="Search users..."/>
+          </div>
 
 </body> </html>
