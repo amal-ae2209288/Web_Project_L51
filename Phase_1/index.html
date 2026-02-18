@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Social Media Platform • Login</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="container">
+      <div class="auth-hero">
+        <div class="logo-badge" aria-hidden="true">
+  <!-- Sync / loop icon -->
+  <svg viewBox="0 0 24 24">
+    <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
+  </svg>
+</div>
+
+        <h1 class="auth-title">SyncSpace </h1>
+       <p class="auth-sub">Sync. Share. Connect.</p>
+
+      </div>
+
+      <div class="auth-grid">
+        <!-- Login -->
+        <div class="card auth-card">
+          <h2>Log In</h2>
+          <div style="display:grid; gap:12px;">
+            <div>
+              <label for="loginUser">Username</label>
+              <input class="input" id="loginUser" placeholder="e.g. Arwa"/>
+            </div>
+            <div>
+              <label for="loginPass">Password</label>
+              <input class="input" id="loginPass" type="password" placeholder="******"/>
+            </div>
+            <div class="auth-actions">
+              <span class="small">New here? <a href="#signup">Sign up instead.</a></span>
+              <button class="btn" id="loginBtn">Login</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signup -->
+        <div class="card auth-card" id="signup">
+          <h2>Sign Up</h2>
+          <div style="display:grid; gap:12px;">
+            <div>
+              <label for="suName">Name</label>
+              <input class="input" id="suName" placeholder="Your name"/>
+            </div>
+            <div>
+              <label for="suUser">Username</label>
+              <input class="input" id="suUser" placeholder="Enter username"/>
+            </div>
+            <div>
+              <label for="suPass">Password</label>
+              <input class="input" id="suPass" type="password" placeholder="Min 6 chars"/>
+            </div>
+            <div>
+              <label for="suConfirm">Confirm Password</label>
+              <input class="input" id="suConfirm" type="password" placeholder="Confirm password"/>
+            </div>
+            <div class="auth-actions">
+              <span class="small">Already have an account? <a href="#">Log in</a></span>
+              <button class="btn" id="signupBtn">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // If already logged in, go feed
+    if (getSessionUser()) window.location.href = "feed.html";
+
+    const $ = (id) => document.getElementById(id);
+
+    $("loginBtn").onclick = () => {
+      try{
+        login({ username: $("loginUser").value, password: $("loginPass").value });
+        window.location.href = "feed.html";
+      }catch(e){ alert(e.message); }
+    };
+
+    $("signupBtn").onclick = () => {
+      try{
+        signup({
+          name: $("suName").value,
+          username: $("suUser").value,
+          password: $("suPass").value,
+          confirm: $("suConfirm").value
+        });
+        window.location.href = "feed.html";
+      }catch(e){ alert(e.message); }
+    };
+  </script>
+</body>
+</html>
