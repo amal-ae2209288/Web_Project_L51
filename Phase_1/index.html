@@ -1,87 +1,132 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Social Media Platform • Login</title>
-  <link rel="stylesheet" href="css/styles.css"/>
-</head>
-<body>
-  <div class="auth-wrap">
-    <div class="container">
-      <div class="auth-hero">
-        <div class="logo-badge" aria-hidden="true">
-  <!-- Sync / loop icon -->
-  <svg viewBox="0 0 24 24">
-    <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
-  </svg>
-</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Social Media Platform • Login</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- =========== HEADER   ============= -->
+    <header>
 
-        <h1 class="auth-title">SyncSpace </h1>
-       <p class="auth-sub">Sync. Share. Connect.</p>
+    </header>
 
-      </div>
+    <!-- ===========NAVIGATION (Responsive: vertical on mobile, horizontal on tablet+) ==== -->
+    <nav>
 
-      <div class="auth-grid">
-        <!-- Login -->
-        <div class="card auth-card">
-          <h2>Log In</h2>
-          <div style="display:grid; gap:12px;">
-            <div>
-              <label for="loginUser">Username</label>
-              <input class="input" id="loginUser" placeholder="e.g. Arwa"/>
+    </nav>
+    <!-- ========== MAIN CONTENT =========== -->
+    <main>
+
+    </main>
+    <!-- ========== SIDEBAR (Below main on mobile, beside main on desktop) ======== -->
+    <aside>
+
+    </aside>
+    <!-- ========= FOOTER ====== -->
+     <footer>
+
+     </footer>
+
+     
+    <div class="auth-wrap">
+      <div class="container">
+        <div class="auth-hero">
+          <div class="logo-badge" aria-hidden="true">
+            <!-- Sync / loop icon -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"
+              />
+            </svg>
+          </div>
+
+          <h1 class="auth-title">SyncSpace</h1>
+          <p class="auth-sub">Sync. Share. Connect.</p>
+        </div>
+
+        <div class="auth-grid">
+          <!-- Login -->
+          <div class="card auth-card">
+            <h2>Log In</h2>
+            <!-- inline style -->
+            <div style="display: grid; gap: 12px">
+              <div>
+                <label for="loginUser">Username</label>
+                <input class="input" id="loginUser" placeholder="e.g. Arwa" />
+              </div>
+              <div>
+                <label for="loginPass">Password</label>
+                <input
+                  class="input"
+                  id="loginPass"
+                  type="password"
+                  placeholder="******"
+                />
+              </div>
+              <div class="auth-actions">
+                <span class="small"
+                  >New here? <a href="#signup">Sign up instead.</a></span
+                >
+                <button class="btn" id="loginBtn">Login</button>
+              </div>
             </div>
-            <div>
-              <label for="loginPass">Password</label>
-              <input class="input" id="loginPass" type="password" placeholder="******"/>
-            </div>
-            <div class="auth-actions">
-              <span class="small">New here? <a href="#signup">Sign up instead.</a></span>
-              <button class="btn" id="loginBtn">Login</button>
+          </div>
+
+          <!-- Signup -->
+          <div class="card auth-card" id="signup">
+            <h2>Sign Up</h2>
+             <!-- inline style -->
+            <div style="display: grid; gap: 12px">
+              <div>
+                <label for="suName">Name</label>
+                <input class="input" id="suName" placeholder="Your name" />
+              </div>
+              <div>
+                <label for="suUser">Username</label>
+                <input class="input" id="suUser" placeholder="Enter username" />
+              </div>
+              <div>
+                <label for="suPass">Password</label>
+                <input
+                  class="input"
+                  id="suPass"
+                  type="password"
+                  placeholder="Min 6 chars"
+                />
+              </div>
+              <div>
+                <label for="suConfirm">Confirm Password</label>
+                <input
+                  class="input"
+                  id="suConfirm"
+                  type="password"
+                  placeholder="Confirm password"
+                />
+              </div>
+              <div>
+                <label for="suEmail">Email</label>
+                <input class="input" id="suEmail" type="email" placeholder="example@email.com"/>
+              </div>
+              <!-- profile picture -->
+              <div class="auth-actions">
+                <span class="small"
+                  >Already have an account? <a href="#">Log in</a></span>
+                <button class="btn" id="signupBtn">Sign Up</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Signup -->
-        <div class="card auth-card" id="signup">
-          <h2>Sign Up</h2>
-          <div style="display:grid; gap:12px;">
-            <div>
-              <label for="suName">Name</label>
-              <input class="input" id="suName" placeholder="Your name"/>
-            </div>
-            <div>
-              <label for="suUser">Username</label>
-              <input class="input" id="suUser" placeholder="Enter username"/>
-            </div>
-            <div>
-              <label for="suPass">Password</label>
-              <input class="input" id="suPass" type="password" placeholder="Min 6 chars"/>
-            </div>
-            <div>
-              <label for="suConfirm">Confirm Password</label>
-              <input class="input" id="suConfirm" type="password" placeholder="Confirm password"/>
-            </div>
-            <div class="auth-actions">
-              <span class="small">Already have an account? <a href="#">Log in</a></span>
-              <button class="btn" id="signupBtn">Sign Up</button>
-            </div>
-          </div>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Help</a>
+          <a href="#">Privacy</a>
         </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="#">About</a>
-        <a href="#">Help</a>
-        <a href="#">Privacy</a>
       </div>
     </div>
-  </div>
 
-<script>
-
-</script>
-
-</body>
-
+    <script></script>
+  </body>
 </html>
