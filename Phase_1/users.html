@@ -4,74 +4,199 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>SyncSpace • Discover Users</title>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-    <!-- Topbar -->
- <div class="topbar">
+
+  <!-- Topbar -->
+  <header class="topbar">
     <div class="container topbar-inner">
-   <div class="brand">
-  <span class="mini" aria-hidden="true">
-    <!-- SyncSpace Icon -->
-    <svg viewBox="0 0 24 24">
-      <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
-    </svg>
-  </span>
-  <span>SyncSpace</span>
-</div>
-<div class="nav-links">
+
+      <div class="brand">
+        <span class="mini" aria-hidden="true">
+          <!-- SyncSpace Icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
+          </svg>
+        </span>
+        <span>SyncSpace</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="feed.html">
-          <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
-          Home
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/>
+          </svg>
+          <span>Home</span>
         </a>
+
         <a class="active" href="users.html">
-          <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
-          Explore
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/>
+          </svg>
+          <span>Explore</span>
         </a>
+
         <a href="profile.html">
-          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
-          Profile
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+          </svg>
+          <span>Profile</span>
         </a>
-      </div>   
-        <div class="user-pill">
+      </nav>
+
+      <div class="user-pill">
         <span class="avatar" id="topAvatar">U</span>
         <span class="small" id="topUser">@user</span>
-        <button class="btn btn-ghost" onclick="logout()">Logout</button>
+        <button class="btn btn-ghost" type="button">Logout</button>
       </div>
-    </div>
-  </div>
 
+    </div>
+  </header>
+
+  <!-- Main App -->
   <div class="app">
     <div class="container app-grid">
+
+      <!-- Sidebar -->
       <aside class="card sidebar">
-        <div class="side-title">MENU</div>
-        <a class="side-item" href="feed.html">
-          <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
-          Home
-        </a>
-        <a class="side-item active" href="users.html">
-          <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
-          Explore
-        </a>
-        <a class="side-item" href="profile.html">
-          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
-          Profile
-        </a>
+        <h2 class="side-title">MENU</h2>
+
+        <nav aria-label="Sidebar navigation">
+          <a class="side-item" href="feed.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/>
+            </svg>
+            <span>Home</span>
+          </a>
+
+          <a class="side-item active" href="users.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/>
+            </svg>
+            <span>Explore</span>
+          </a>
+
+          <a class="side-item" href="profile.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+            </svg>
+            <span>Profile</span>
+          </a>
+        </nav>
       </aside>
 
+      <!-- Main Content -->
       <main class="card main">
-        <div class="page-title">
-          <h1>Discover Users</h1>
-          <div class="right">
-            <input class="input search" id="search" placeholder="Search users..."/>
+        <section class="page-title">
+          <div>
+            <h1>Discover Users</h1>
+            <p class="small">Find people to connect and collaborate with.</p>
           </div>
-        </div>
 
-        <div class="user-list" id="list"></div>
+          <form class="right" role="search">
+            <label for="search" class="small">Search users</label>
+            <input
+              class="input search"
+              id="search"
+              name="search"
+              type="search"
+              placeholder="Search users..."
+            />
+          </form>
+        </section>
+
+        <section class="user-list" id="list" aria-label="Discovered users">
+
+          <!-- User Card 1 -->
+          <article class="user-card card">
+            <div class="user-card-top">
+              <div class="user-info">
+                <span class="avatar large">A</span>
+                <div>
+                  <h2 class="user-name">Aisha Ahmed</h2>
+                  <p class="user-handle">@aisha123</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="user-bio">
+              Front-end learner who loves clean design and building simple social apps.
+            </p>
+
+            <div class="user-meta">
+              <span>12 posts</span>
+              <span>180 followers</span>
+              <span>95 following</span>
+            </div>
+
+            <div class="user-actions">
+              <button class="btn" type="button">Follow</button>
+              <a class="btn btn-ghost" href="profile.html">View Profile</a>
+            </div>
+          </article>
+
+          <!-- User Card 2 -->
+          <article class="user-card card">
+            <div class="user-card-top">
+              <div class="user-info">
+                <span class="avatar large">K</span>
+                <div>
+                  <h2 class="user-name">Khalid Ali</h2>
+                  <p class="user-handle">@ali_khalid</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="user-bio">
+              Interested in UI, web apps, and building projects step by step.
+            </p>
+
+            <div class="user-meta">
+              <span>24 posts</span>
+              <span>320 followers</span>
+              <span>140 following</span>
+            </div>
+
+            <div class="user-actions">
+              <button class="btn" type="button">Follow</button>
+              <a class="btn btn-ghost" href="profile.html">View Profile</a>
+            </div>
+          </article>
+
+          <!-- User Card 3 -->
+          <article class="user-card card">
+            <div class="user-card-top">
+              <div class="user-info">
+                <span class="avatar large">N</span>
+                <div>
+                  <h2 class="user-name">Noora Jassim</h2>
+                  <p class="user-handle">@noora.99</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="user-bio">
+              Beginner web developer sharing progress, ideas, and small creative projects.
+            </p>
+
+            <div class="user-meta">
+              <span>8 posts</span>
+              <span>96 followers</span>
+              <span>61 following</span>
+            </div>
+
+            <div class="user-actions">
+              <button class="btn" type="button">Follow</button>
+              <a class="btn btn-ghost" href="profile.html">View Profile</a>
+            </div>
+          </article>
+
+        </section>
       </main>
+
     </div>
   </div>
-  <script> </script>
-  
 
-</body> </html>
+</body>
+</html>
