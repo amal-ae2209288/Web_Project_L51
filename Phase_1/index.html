@@ -7,33 +7,10 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+ <div class="auth-wrap">
     <!-- =========== HEADER   ============= -->
     <header>
-
-    </header>
-
-    <!-- ===========NAVIGATION (Responsive: vertical on mobile, horizontal on tablet+) ==== -->
-    <nav>
-
-    </nav>
-    <!-- ========== MAIN CONTENT =========== -->
-    <main>
-
-    </main>
-    <!-- ========== SIDEBAR (Below main on mobile, beside main on desktop) ======== -->
-    <aside>
-
-    </aside>
-    <!-- ========= FOOTER ====== -->
-     <footer>
-
-     </footer>
-
-     
-    <div class="auth-wrap">
-      <div class="container">
-        <div class="auth-hero">
-          <div class="logo-badge" aria-hidden="true">
+      <div class="logo-badge" aria-hidden="true">
             <!-- Sync / loop icon -->
             <svg viewBox="0 0 24 24">
               <path
@@ -44,50 +21,48 @@
 
           <h1 class="auth-title">SyncSpace</h1>
           <p class="auth-sub">Sync. Share. Connect.</p>
-        </div>
+    </header>
+    <!-- ========== MAIN CONTENT =========== -->
+    <main>
 
-        <div class="auth-grid">
+          <div class="auth-grid">
           <!-- Login -->
-          <div class="card auth-card">
+          <section class="card auth-card" id="login">
             <h2>Log In</h2>
-            <!-- inline style -->
-            <div style="display: grid; gap: 12px">
-              <div>
+            <form>
                 <label for="loginUser">Username</label>
                 <input class="input" id="loginUser" placeholder="e.g. Arwa" />
-              </div>
-              <div>
-                <label for="loginPass">Password</label>
+
+                 <label for="loginPass">Password</label>
                 <input
                   class="input"
                   id="loginPass"
                   type="password"
                   placeholder="******"
                 />
-              </div>
-              <div class="auth-actions">
+
+                 <div class="auth-actions">
                 <span class="small"
                   >New here? <a href="#signup">Sign up instead.</a></span
                 >
-                <button class="btn" id="loginBtn">Login</button>
+                <button class="btn" id="loginBtn" type="submit">Login</button>
+                <button class="btn" id="cancelLogin" type="reset">Cancel</button>
+
+                
               </div>
-            </div>
-          </div>
+            </form>
+          </section>
 
           <!-- Signup -->
-          <div class="card auth-card" id="signup">
+          <section class="card auth-card" id="signup">
             <h2>Sign Up</h2>
-             <!-- inline style -->
-            <div style="display: grid; gap: 12px">
-              <div>
-                <label for="suName">Name</label>
+            <form>
+              <label for="suName">Name</label>
                 <input class="input" id="suName" placeholder="Your name" />
-              </div>
-              <div>
-                <label for="suUser">Username</label>
+
+                  <label for="suUser">Username</label>
                 <input class="input" id="suUser" placeholder="Enter username" />
-              </div>
-              <div>
+
                 <label for="suPass">Password</label>
                 <input
                   class="input"
@@ -95,38 +70,39 @@
                   type="password"
                   placeholder="Min 6 chars"
                 />
-              </div>
-              <div>
-                <label for="suConfirm">Confirm Password</label>
+
+                 <label for="suConfirm">Confirm Password</label>
                 <input
                   class="input"
                   id="suConfirm"
                   type="password"
                   placeholder="Confirm password"
                 />
-              </div>
-              <div>
-                <label for="suEmail">Email</label>
+                 <label for="suEmail">Email</label>
                 <input class="input" id="suEmail" type="email" placeholder="example@email.com"/>
-              </div>
-              <!-- profile picture -->
-              <div class="auth-actions">
+
+                 <!-- profile picture -->
+
+
+                 <div class="auth-actions">
                 <span class="small"
                   >Already have an account? <a href="#">Log in</a></span>
-                <button class="btn" id="signupBtn">Sign Up</button>
+                <button class="btn" id="signupBtn" type="submit">Sign Up</button>
+                <button class="btn" id="cancelSignUp" type="reset">Cancel</button>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="footer-links">
+
+            </form>
+          </section>
+        
+          </div>
+    </main>
+    <!-- ========= FOOTER ====== -->
+     <footer>
           <a href="#">About</a>
           <a href="#">Help</a>
           <a href="#">Privacy</a>
-        </div>
-      </div>
-    </div>
-
-    <script></script>
+     </footer>
+     </div>
   </body>
 </html>
