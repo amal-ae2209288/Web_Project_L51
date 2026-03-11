@@ -7,48 +7,47 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
- <div class="auth-wrap">
-    <!-- =========== HEADER   ============= -->
-    <header>
-      <div class="logo-badge" aria-hidden="true">
-            <!-- Sync / loop icon -->
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"
-              />
-            </svg>
-          </div>
+    <div class="auth-wrap">
+      <!-- =========== HEADER   ============= -->
+      <header>
+        <div class="logo-badge" aria-hidden="true">
+          <!-- Sync / loop icon -->
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"
+            />
+          </svg>
+        </div>
 
-          <h1 class="auth-title">SyncSpace</h1>
-          <p class="auth-sub">Sync. Share. Connect.</p>
-    </header>
-    <!-- ========== MAIN CONTENT =========== -->
-    <main>
-
-          <div class="auth-grid">
+        <h1 class="auth-title">SyncSpace</h1>
+        <p class="auth-sub">Sync. Share. Connect.</p>
+      </header>
+      <!-- ========== MAIN CONTENT =========== -->
+      <main>
+        <div class="auth-grid">
           <!-- Login -->
           <section class="card auth-card" id="login">
             <h2>Log In</h2>
             <form>
-                <label for="loginUser">Username</label>
-                <input class="input" id="loginUser" placeholder="e.g. Arwa" />
+              <label for="loginUser">Username</label>
+              <input class="input" id="loginUser" placeholder="e.g. Arwa" />
 
-                 <label for="loginPass">Password</label>
-                <input
-                  class="input"
-                  id="loginPass"
-                  type="password"
-                  placeholder="******"
-                />
+              <label for="loginPass">Password</label>
+              <input
+                class="input"
+                id="loginPass"
+                type="password"
+                placeholder="******"
+              />
 
-                 <div class="auth-actions">
+              <div class="auth-actions">
                 <span class="small"
                   >New here? <a href="#signup">Sign up instead.</a></span
                 >
                 <button class="btn" id="loginBtn" type="submit">Login</button>
-                <button class="btn" id="cancelLogin" type="reset">Cancel</button>
-
-                
+                <button class="btn" id="cancelLogin" type="reset">
+                  Cancel
+                </button>
               </div>
             </form>
           </section>
@@ -58,51 +57,64 @@
             <h2>Sign Up</h2>
             <form>
               <label for="suName">Name</label>
-                <input class="input" id="suName" placeholder="Your name" />
+              <input class="input" id="suName" placeholder="Your name" />
 
-                  <label for="suUser">Username</label>
-                <input class="input" id="suUser" placeholder="Enter username" />
+              <label for="suUser">Username</label>
+              <input class="input" id="suUser" placeholder="Enter username" />
 
-                <label for="suPass">Password</label>
-                <input
-                  class="input"
-                  id="suPass"
-                  type="password"
-                  placeholder="Min 6 chars"
-                />
+              <label for="suPass">Password</label>
+              <input
+                class="input"
+                id="suPass"
+                type="password"
+                placeholder="Min 6 chars"
+              />
 
-                 <label for="suConfirm">Confirm Password</label>
-                <input
-                  class="input"
-                  id="suConfirm"
-                  type="password"
-                  placeholder="Confirm password"
-                />
-                 <label for="suEmail">Email</label>
-                <input class="input" id="suEmail" type="email" placeholder="example@email.com"/>
+              <label for="suConfirm">Confirm Password</label>
+              <input
+                class="input"
+                id="suConfirm"
+                type="password"
+                placeholder="Confirm password"
+              />
+              <label for="suEmail">Email</label>
+              <input
+                class="input"
+                id="suEmail"
+                type="email"
+                placeholder="example@email.com"
+              />
 
-                 <!-- profile picture -->
+              <!-- profile picture -->
+              <label for="suProfilePic">Profile Picture URL</label>
+              <input
+                class="input"
+                id="suProfilePic"
+                type="url"
+                placeholder="https://example.com/avatar.jpg"
+              />
 
-
-                 <div class="auth-actions">
+              <div class="auth-actions">
                 <span class="small"
-                  >Already have an account? <a href="#">Log in</a></span>
-                <button class="btn" id="signupBtn" type="submit">Sign Up</button>
-                <button class="btn" id="cancelSignUp" type="reset">Cancel</button>
+                  >Already have an account? <a href="#">Log in</a></span
+                >
+                <button class="btn" id="signupBtn" type="submit">
+                  Sign Up
+                </button>
+                <button class="btn" id="cancelSignUp" type="reset">
+                  Cancel
+                </button>
               </div>
-
-
             </form>
           </section>
-        
-          </div>
-    </main>
-    <!-- ========= FOOTER ====== -->
-     <footer>
-          <a href="#">About</a>
-          <a href="#">Help</a>
-          <a href="#">Privacy</a>
-     </footer>
-     </div>
+        </div>
+      </main>
+      <!-- ========= FOOTER ====== -->
+      <footer>
+        <a href="#">About</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+      </footer>
+    </div>
   </body>
 </html>
