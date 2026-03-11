@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SyncSpace • News Feed</title>
+    <title> News Feed</title>
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
@@ -13,12 +13,10 @@
         <div class="brand">
           <span class="mini" aria-hidden="true">
             <svg viewBox="0 0 24 24">
-              <path
-                d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"
-              />
+               <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
             </svg>
           </span>
-          <span>SyncSpace</span>
+          <span>Social Wave</span>
         </div>
         <!-- Navigation -->
         <nav class="nav-links">
@@ -54,37 +52,7 @@
     </header>
 
     <!-- Main  with Sidebar and Feed -->
-    <div class="container app-grid">
-      <!-- Sidebar -->
-      <aside class="card sidebar">
-        <div class="side-title">MENU</div>
-        <a class="side-item active" href="feed.html">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z" />
-          </svg>
-          Home
-        </a>
-        <a class="side-item" href="users.html">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"
-            />
-          </svg>
-          Explore
-        </a>
-        <a class="side-item" href="profile.html">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"
-            />
-          </svg>
-          Profile
-        </a>
-        <div class="hr"></div>
-        <div class="small muted">
-          Tip: Follow users in Explore to see their posts here.
-        </div>
-      </aside>
+    <div class="container app-grid  feed-grid">
 
       <!-- Main Feed -->
       <main class="card main">

@@ -13,14 +13,12 @@
         <div class="logo-badge" aria-hidden="true">
           <!-- Sync / loop icon -->
           <svg viewBox="0 0 24 24">
-            <path
-              d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"
-            />
+             <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
           </svg>
         </div>
 
-        <h1 class="auth-title">SyncSpace</h1>
-        <p class="auth-sub">Sync. Share. Connect.</p>
+        <h1 class="auth-title">Social Wave</h1>
+        <p class="auth-sub">Share. Connect.</p>
       </header>
       <!-- ========== MAIN CONTENT =========== -->
       <main>
@@ -30,7 +28,7 @@
             <h2>Log In</h2>
             <form>
               <label for="loginUser">Username</label>
-              <input class="input" id="loginUser" placeholder="e.g. Arwa" />
+              <input class="input" id="loginUser" placeholder="e.g. Arwa" required aria-required="true" />
 
               <label for="loginPass">Password</label>
               <input
@@ -38,6 +36,7 @@
                 id="loginPass"
                 type="password"
                 placeholder="******"
+                required aria-required="true"
               />
 
               <div class="auth-actions">
@@ -57,17 +56,18 @@
             <h2>Sign Up</h2>
             <form>
               <label for="suName">Name</label>
-              <input class="input" id="suName" placeholder="Your name" />
+              <input class="input" id="suName" placeholder="ex. Amal" required aria-required="true" />
 
               <label for="suUser">Username</label>
-              <input class="input" id="suUser" placeholder="Enter username" />
+              <input class="input" id="suUser" placeholder="ex. amal_20" required aria-required="true"/>
 
               <label for="suPass">Password</label>
               <input
                 class="input"
                 id="suPass"
                 type="password"
-                placeholder="Min 6 chars"
+                placeholder="12345678"
+                required aria-required="true"
               />
 
               <label for="suConfirm">Confirm Password</label>
@@ -76,6 +76,7 @@
                 id="suConfirm"
                 type="password"
                 placeholder="Confirm password"
+                required aria-required="true"
               />
               <label for="suEmail">Email</label>
               <input
@@ -83,6 +84,7 @@
                 id="suEmail"
                 type="email"
                 placeholder="example@email.com"
+                required aria-required="true"
               />
 
               <!-- profile picture -->
@@ -92,6 +94,7 @@
                 id="suProfilePic"
                 type="url"
                 placeholder="https://example.com/avatar.jpg"
+                required aria-required="true"
               />
 
               <div class="auth-actions">
