@@ -250,18 +250,15 @@ label{
   padding:14px;
 }
 /* ============ index - Auth Pages (Login / Register) ============ */
-.auth-wrap {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: var(--spacing-md);
+.auth-wrap{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  padding:40px 0;
 }
-
-.auth-hero {
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
+.auth-hero{
+  text-align:center;
+  margin-bottom:22px;
 }
 
 .logo-badge svg {
@@ -271,32 +268,18 @@ label{
   animation: syncRotate 8s linear infinite;
 }
 
-.auth-title {
-  font-size: 2rem;
-  color: var(--text);
-  margin: var(--spacing-sm) 0 var(--spacing-xs);
-}
+.auth-title{margin:14px 0 0; font-size:26px; letter-spacing:-.2px}
+.auth-sub{margin:8px 0 0; color:var(--muted)}
 
-.auth-sub {
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-.auth-grid {
-  display: grid;
+.auth-grid{
+  display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  max-width: 900px;
-  margin: 0 auto;
+  gap:18px;
+  margin-top:18px;
 }
 
-.auth-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow2);
-}
+.auth-card{padding:18px}
+.auth-card h2{margin:0 0 14px; font-size:18px}
 
 .auth-card h2 {
   margin-top: 0;
@@ -319,25 +302,17 @@ label{
   margin-top: var(--spacing-md);
 }
 
-.auth-actions .btn {
-  min-width: 100px;
+.auth-actions{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px}
+.footer-links{
+  text-align:center;
+  margin-top:18px;
+  color:var(--muted);
+  font-size:12px;
 }
-.auth-actions .btn:first-of-type {
-  margin-left: auto;      
-}
-/* Cancel button style */
-.auth-actions .btn[type="reset"] {
-  background: var(--line);
-  color: var(--text);
-  box-shadow: none;
-}
-.auth-actions .btn[type="reset"]:hover {
-  background: var(--muted);
-}
+.footer-links a{margin:0 8px}
 
-footer {
-  text-align: center;
-  padding: var(--spacing-md) 0;
+@media (max-width:860px){
+  .auth-grid{grid-template-columns:1fr}
 }
 /* ============ Feed Page ============ */
 .composer {
