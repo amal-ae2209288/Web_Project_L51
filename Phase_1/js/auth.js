@@ -67,7 +67,7 @@ function login({ username, password }) {
   setSession(user.id);
 }
 
-/* Optional: seed demo data(runs once) */
+/* seed demo data(runs once) */
 (function seedOnce(){
   const users = getUsers();
   const posts = Storage.get("posts", []);
