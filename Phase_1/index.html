@@ -7,65 +7,54 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+  <div class="auth-wrap">
+      <!-- =========== HEADER   ============= -->
+      <header>
+        <div class="logo-badge" aria-hidden="true">
+          <!-- Sync / loop icon -->
+          <svg viewBox="0 0 24 24">
+             <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </div>
 
-<div class="auth-wrap">
-<div class="container">
+        <h1 class="auth-title">Social Wave</h1>
+        <p class="auth-sub">Share. Connect.</p>
+      </header>
+      <!-- ========== MAIN CONTENT =========== -->
+      <main>
+        <div class="auth-grid">
+          <!-- Login -->
+          <section class="card auth-card" id="login">
+            <h2>Log In</h2>
+            <form>
+              <label for="loginUser">Username</label>
+              <input class="input" id="loginUser" placeholder="e.g. Arwa" required aria-required="true" />
 
-<div class="auth-hero">
+              <label for="loginPass">Password</label>
+              <input
+                class="input"
+                id="loginPass"
+                type="password"
+                placeholder="******"
+                required aria-required="true"
+              />
 
-<div class="logo-badge">
-<svg viewBox="0 0 24 24">
-<path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
-</svg>
-</div>
-
-<h1 class="auth-title">SyncSpace</h1>
-<p class="auth-sub">Sync. Share. Connect.</p>
-
-</div>
-
-
-<div class="auth-grid" style="grid-template-columns:1fr; max-width:420px; margin:auto;">
-
-<div class="card auth-card">
-
-<h2>Log In</h2>
-
-<div style="display:grid; gap:12px;">
-
-<div>
-<label>Username</label>
-<input class="input" id="loginUser" placeholder="e.g. Arwa"/>
-</div>
-
-<div>
-<label>Password</label>
-<input class="input" id="loginPass" type="password" placeholder="******"/>
-</div>
-
-<div class="auth-actions">
-
-<span class="small">
-New here? <a href="signup.html">Create account</a>
-</span>
-
-<button class="btn" id="loginBtn">Login</button>
-
-</div>
-
-</div>
-</div>
-</div>
-
-
-<div class="footer-links">
-<a href="#">About</a>
-<a href="#">Help</a>
-<a href="#">Privacy</a>
-</div>
-
-</div>
-</div>
+              <div class="auth-actions">
+                <span class="small">New here? <a href="#signup">Sign up instead.</a></span>
+                <button class="btn" id="loginBtn" type="submit">Login</button>
+                <button class="btn" id="cancelLogin" type="reset"> Cancel </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+      <!-- ========= FOOTER ====== -->
+      <footer>
+        <a href="#">About</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+      </footer>
+    </div>
 
 <script src="js/storage.js"></script>
 <script src="js/utils.js"></script>
@@ -97,4 +86,6 @@ alert(e.message);
 </script>
 
 </body>
+
 </html>
+

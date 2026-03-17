@@ -9,78 +9,90 @@
 
 <body class="page-transition">
 
-<div class="auth-wrap">
-<div class="container">
+ <div class="auth-wrap">
+      <!-- =========== HEADER   ============= -->
+      <header>
+        <div class="logo-badge" aria-hidden="true">
+          <!-- Sync / loop icon -->
+          <svg viewBox="0 0 24 24">
+             <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </div>
 
-<div class="auth-hero">
+        <h1 class="auth-title">Social Wave</h1>
+        <p class="auth-sub">Share. Connect.</p>
+      </header>
+      <!-- ========== MAIN CONTENT =========== -->
+      <main>
+        <div class="auth-grid">
+           <!-- Signup -->
+          <section class="card auth-card" id="signup">
+            <h2>Sign Up</h2>
+            <form>
+              <label for="suName">Name</label>
+              <input class="input" id="suName" placeholder="ex. Amal" required aria-required="true" />
 
-<div class="logo-badge">
-<svg viewBox="0 0 24 24">
-<path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 12.65-5.65Z"/>
-</svg>
-</div>
+              <label for="suUser">Username</label>
+              <input class="input" id="suUser" placeholder="ex. amal_20" required aria-required="true"/>
 
+              <label for="suPass">Password</label>
+              <input
+                class="input"
+                id="suPass"
+                type="password"
+                placeholder="12345678"
+                required aria-required="true"
+              />
 
-<h1 class="auth-title">Create Account</h1>
-<p class="auth-sub">Join SyncSpace today</p>
+              <label for="suConfirm">Confirm Password</label>
+              <input
+                class="input"
+                id="suConfirm"
+                type="password"
+                placeholder="Confirm password"
+                required aria-required="true"
+              />
+              <label for="suEmail">Email</label>
+              <input
+                class="input"
+                id="suEmail"
+                type="email"
+                placeholder="example@email.com"
+                required aria-required="true"
+              />
 
-</div>
+              <!-- profile picture -->
+              <label for="suProfilePic">Profile Picture URL</label>
+              <input
+                class="input"
+                id="suProfilePic"
+                type="url"
+                placeholder="https://example.com/avatar.jpg"
+                required aria-required="true"
+              />
 
-
-<div class="auth-grid" style="grid-template-columns:1fr; max-width:420px; margin:auto;">
-
-<div class="card auth-card">
-
-<h2>Sign Up</h2>
-
-<div style="display:grid; gap:12px;">
-
-<div>
-<label>Name</label>
-<input class="input" id="suName" placeholder="Your name"/>
-</div>
-
-<div>
-<label>Username</label>
-<input class="input" id="suUser" placeholder="Choose username"/>
-</div>
-
-<div>
-<label>Password</label>
-<input class="input" id="suPass" type="password" placeholder="Min 6 characters"/>
-</div>
-
-<div>
-<label>Confirm Password</label>
-<input class="input" id="suConfirm" type="password" placeholder="Confirm password"/>
-</div>
-
-<div class="auth-actions">
-
-<span class="small">
-Already have an account?
-<a href="index.html" id="goLogin">Log in</a>
-</span>
-
-<button class="btn" id="signupBtn">Create Account</button>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-
-<div class="footer-links">
-<a href="#">About</a>
-<a href="#">Help</a>
-<a href="#">Privacy</a>
-</div>
-
-</div>
-</div>
-
+              <div class="auth-actions">
+                <span class="small"
+                  >Already have an account? <a href="#">Log in</a></span
+                >
+                <button class="btn" id="signupBtn" type="submit">
+                  Sign Up
+                </button>
+                <button class="btn" id="cancelSignUp" type="reset">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+      <!-- ========= FOOTER ====== -->
+      <footer>
+        <a href="#">About</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+      </footer>
+    </div>
 
 <script src="js/storage.js"></script>
 <script src="js/utils.js"></script>
