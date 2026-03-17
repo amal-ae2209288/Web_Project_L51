@@ -1,89 +1,111 @@
-function getUsers() {
-  return Storage.get("users", []);
-}
-
-function saveUsers(users) {
-  Storage.set("users", users);
-}
 
 
-function setSession(userId) {
-  Storage.set("session", { userId });
-}
+// ===================================
+// Authentication
 
-function clearSession() {
-  localStorage.removeItem("session");
-}
-function getSessionUser() {
-  const session = Storage.get("session", null);
-  if (!session) return null;
-  const users = getUsers();
-  return users.find(u => u.id === session.userId) || null;
-}
+document.addEventListener('DOMContentLoaded', function() {
+  // ----- LOGIN (index.html) -----
+  const loginBtn = document.getElementById('loginBtn');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUser').value.trim();
+      const password = document.getElementById('loginPass').value;
 
-function requireLogin() {
-  const me = getSessionUser();
-  if (!me) window.location.href = "index.html";
-  return me;
-}
+      if (!username || !password) {
+        alert('Please enter username and password');
+        return;
+      }
 
+      const users = getData('users') || [];
+      const user = users.find(u => u.username === username && u.password === password);
 
+      if (user) {
+        saveData('currentUser', user.id);
+        window.location.href = 'feed.html';
+      } else {
+        alert('Invalid username or password');
+      }
+    });
+  }
 
-function logout() {
-  clearSession();
-  window.location.href = "index.html";
-}
+  // ----- SIGNUP (signup.html) -----
+  const signupBtn = document.getElementById('signupBtn');
+  if (signupBtn) {
+    signupBtn.addEventListener('click', function(e) {
+      e.preventDefault();
 
-function signup({ name, username, password, confirm }) {
-  const users = getUsers();
+      const name = document.getElementById('suName').value.trim();
+      const username = document.getElementById('suUser').value.trim();
+      const password = document.getElementById('suPass').value;
+      const confirm = document.getElementById('suConfirm').value;
+      const email = document.getElementById('suEmail').value.trim();
+      const avatar = document.getElementById('suProfilePic').value.trim();
 
-  if (!name.trim()) throw new Error("Name is required.");
-  if (!username.trim()) throw new Error("Username is required.");
-  if (users.some(u => u.username.toLowerCase() === username.toLowerCase()))
-    throw new Error("Username already exists.");
-  if (password.length < 6) throw new Error("Password must be at least 6 characters.");
-  if (password !== confirm) throw new Error("Passwords do not match.");
+      if (!name || !username || !password || !confirm || !email) {
+        alert('Please fill all fields');
+        return;
+      }
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters');
+        return;
+      }
+      if (password !== confirm) {
+        alert('Passwords do not match');
+        return;
+      }
+      if (!email.includes('@')) {
+        alert('Enter a valid email');
+        return;
+      }
 
-  const newUser = {
-    id: uid("u"),
-    name: name.trim(),
-    username: username.trim(),
-    password,
-    bio: "Computer Science student. Love coding and coffee.",
-    avatar: "",
-    following: []
-  };
+      const users = getData('users') || [];
+      if (users.find(u => u.username === username)) {
+        alert('Username already taken');
+        return;
+      }
 
-  users.push(newUser);
-  saveUsers(users);
-  setSession(newUser.id);
-}
+      const newUser = {
+        id: generateId('u'),
+        name: name,
+        username: username,
+        password: password,
+        bio: '',
+        avatar: avatar || '',
+        following: []
+      };
+      users.push(newUser);
+      saveData('users', users);
 
-function login({ username, password }) {
-  const users = getUsers();
-  const user = users.find(u => u.username === username.trim());
-  if (!user) throw new Error("User not found.");
-  if (user.password !== password) throw new Error("Wrong password.");
-  setSession(user.id);
-}
+      alert('Registration successful! Please log in.');
+      window.location.href = 'index.html';
+    });
+  }
 
-/* seed demo data(runs once) */
-(function seedOnce(){
-  const users = getUsers();
-  const posts = Storage.get("posts", []);
-  if (users.length > 0) return;
+  // ----- LOGOUT (any page with logout button) -----
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function() {
+      saveData('currentUser', null);
+      window.location.href = 'index.html';
+    });
+  }
 
-  const u1 = { id: uid("u"), name:"Khadija", username:"khadija01", password:"123456", bio:"Digital Artist.", avatar:"", following:[] };
-  const u2 = { id: uid("u"), name:"Max", username:"maxdev", password:"123456", bio:"Backend developer. Love to solve complex problems!", avatar:"", following:[] };
-  const u3 = { id: uid("u"), name:"Sara", username:"sarablog", password:"123456", bio:"Blogging about tech and travel ✈️", avatar:"", following:[] };
-  const u4 = { id: uid("u"), name:"Arwa", username:"arwa", password:"123456", bio:"Computer Science student. Love coding and coffee.", avatar:"", following:[] };
-  u1.following = [u2.id, u3.id];
+  // ----- PROTECT PAGES (feed, profile, users) -----
+  const currentPath = window.location.pathname.split('/').pop();
+  const protectedPages = ['feed.html', 'profile.html', 'users.html'];
 
-  saveUsers([u1,u2,u3,u4]);
-  Storage.set("posts", [
-    { id: uid("p"), authorId: u2.id, content:"Working on a clean UI today ✨", createdAt: Date.now()-1000*60*40 },
-    { id: uid("p"), authorId: u4.id, content:"Excited to have built this social media platform! #coding #webdev", createdAt: Date.now()-1000*60*15 },
-    { id: uid("p"), authorId: u3.id, content:"New blog post soon 👀", createdAt: Date.now()-1000*60*8 },
-    { id: uid("p"), authorId: u1.id, content:"digital artwort is always my comfort zoon", createdAt: Date.now()-1000*60*8 }
-  ]);
-})();
+  if (protectedPages.includes(currentPath)) {
+    const user = getCurrentUser();
+    if (!user) {
+      window.location.href = 'index.html';
+      return;
+    }
+    const topAvatar = document.getElementById('topAvatar');
+    const topUser = document.getElementById('topUser');
+    if (topAvatar && topUser) {
+      topAvatar.textContent = user.name.charAt(0).toUpperCase();
+      topUser.textContent = '@' + user.username;
+    }
+  }
+});
