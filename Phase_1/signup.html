@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SyncSpace • Sign Up</title>
+<title>Social Media Platform • Sign Up</title>
 <link rel="stylesheet"  href="style.css"/>
 </head>
 
@@ -73,13 +73,13 @@
 
               <div class="auth-actions">
                 <span class="small"
-                  >Already have an account? <a href="/Phase_1/index.html">Log in</a></span
+                  >Already have an account? <a href="index.html">Log in</a></span
                 >
                 <button class="btn" id="signupBtn" type="submit">
                   Sign Up
                 </button>
                 <button class="btn" id="cancelSignUp" type="reset">
-                  Cancel
+                  Clear
                 </button>
               </div>
             </form>
@@ -97,31 +97,6 @@
 <script src="js/storage.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/auth.js"></script>
-
-<script>
-
-const $ = (id)=>document.getElementById(id);
-
-$("signupBtn").onclick = () => {
-
-try{
-
-signup({
-name: $("suName").value,
-username: $("suUser").value,
-password: $("suPass").value,
-confirm: $("suConfirm").value
-});
-
-window.location.href="feed.html";
-
-}catch(e){
-alert(e.message);
-}
-
-};
-
-</script>
 
 </body>
 </html>
