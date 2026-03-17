@@ -40,7 +40,7 @@
               />
 
               <div class="auth-actions">
-                <span class="small">New here? <a href="#signup">Sign up instead.</a></span>
+                <span class="small">New here? <a href="/Phase_1/signup.html">Sign up instead.</a></span>
                 <button class="btn" id="loginBtn" type="submit">Login</button>
                 <button class="btn" id="cancelLogin" type="reset"> Cancel </button>
               </div>
@@ -59,30 +59,7 @@
 <script src="js/storage.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/auth.js"></script>
-<script>
 
-if (getSessionUser())
-window.location.href = "feed.html";
-
-const $ = (id)=>document.getElementById(id);
-
-$("loginBtn").onclick = () => {
-
-try{
-login({
-username: $("loginUser").value,
-password: $("loginPass").value
-});
-
-window.location.href="feed.html";
-
-}catch(e){
-alert(e.message);
-}
-
-};
-
-</script>
 
 </body>
 
