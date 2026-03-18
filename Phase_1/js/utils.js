@@ -17,5 +17,5 @@ function getCurrentUser() {
   const userId = getData('currentUser');
   if (!userId) return null;
   const users = getData('users') || [];
-  return users.find(u => u.id === userId) || null;  // was u.userId, fixed!
+  return users.find(u => u.id === userId) || null;  
 }
