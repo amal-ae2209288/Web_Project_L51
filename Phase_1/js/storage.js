@@ -56,7 +56,7 @@ function generateId(prefix = '') {
     password: '123456#',
     bio: 'Computer Science student. Love coding and coffee.',
     avatar: '',
-    following: []
+    following: [u2.id, u3.id]
   };
 
   // Set following relationships (Khadija follows Max and Sara)
@@ -71,7 +71,7 @@ function generateId(prefix = '') {
       id: generateId('p'),
       authorId: u2.id,
       content: 'Working on a clean UI today ✨',
-      createdAt: Date.now() - 1000 * 60 * 40, // 40 minutes ago
+      createdAt: Date.now() - 1000 * 60 * 40, 
       likes: [],
       comments: []
     },
@@ -79,7 +79,7 @@ function generateId(prefix = '') {
       id: generateId('p'),
       authorId: u4.id,
       content: 'Excited to have built this social media platform! #coding #webdev',
-      createdAt: Date.now() - 1000 * 60 * 15, // 15 minutes ago
+      createdAt: Date.now() - 1000 * 60 * 15,
       likes: [],
       comments: []
     },
@@ -87,7 +87,7 @@ function generateId(prefix = '') {
       id: generateId('p'),
       authorId: u3.id,
       content: 'New blog post soon 👀',
-      createdAt: Date.now() - 1000 * 60 * 8, // 8 minutes ago
+      createdAt: Date.now() - 1000 * 60 * 8, 
       likes: [],
       comments: []
     },
@@ -95,7 +95,7 @@ function generateId(prefix = '') {
       id: generateId('p'),
       authorId: u1.id,
       content: 'digital artwork is always my comfort zone',
-      createdAt: Date.now() - 1000 * 60 * 8, // 8 minutes ago
+      createdAt: Date.now() - 1000 * 60 * 8, 
       likes: [],
       comments: []
     }
