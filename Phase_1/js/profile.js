@@ -28,45 +28,56 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadProfile() {
-    let user = getCurrentUser();
+  let user = getCurrentUser();
 
-const params = new URLSearchParams(window.location.search);
-const viewUserId = params.get("id");
+  const params = new URLSearchParams(window.location.search);
+  const viewUserId = params.get("id");
 
-if (viewUserId) {
-  const users = getData("users") || [];
+  if (viewUserId) {
+    const users = getData("users") || [];
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].id === viewUserId) {
-      user = users[i];
-      break;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id === viewUserId) {
+        user = users[i];
+        break;
+      }
     }
+  }
+
+  if (!user) {
+    return;
+  }
+
+  topUser.textContent = "@" + user.username;
+  meName.textContent = user.name;
+  meHandle.textContent = "@" + user.username;
+  meBio.textContent = user.bio || "No bio yet.";
+
+  if (user.following) {
+    followingCount.textContent = user.following.length;
+  } else {
+    followingCount.textContent = "0";
+  }
+
+  nameInput.value = user.name || "";
+  bioInput.value = user.bio || "";
+  avatarInput.value = user.avatar || "";
+
+  showAvatar(topAvatar, user);
+  showAvatar(meAvatar, user);
+
+  if (user.id !== currentUser.id) {
+    nameInput.disabled = true;
+    bioInput.disabled = true;
+    avatarInput.disabled = true;
+    saveBtn.style.display = "none";
+  } else {
+    nameInput.disabled = false;
+    bioInput.disabled = false;
+    avatarInput.disabled = false;
+    saveBtn.style.display = "inline-block";
   }
 }
-
-
-    if (!user) {
-      return;
-    }
-
-    topUser.textContent = "@" + user.username;
-    meName.textContent = user.name;
-    meHandle.textContent = "@" + user.username;
-    meBio.textContent = user.bio || "No bio yet.";
-
-    if (user.following) {
-      followingCount.textContent = user.following.length;
-    } else {
-      followingCount.textContent = "0";
-    }
-
-    nameInput.value = user.name || "";
-    bioInput.value = user.bio || "";
-    avatarInput.value = user.avatar || "";
-
-    showAvatar(topAvatar, user);
-    showAvatar(meAvatar, user);
-  }
 
   function updateProfile() {
   const newName = nameInput.value.trim();
