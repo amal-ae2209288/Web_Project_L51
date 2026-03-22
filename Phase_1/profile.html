@@ -1,26 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Profile</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Topbar -->
   <div class="topbar">
     <div class="container topbar-inner">
-    <div class="brand">
-  <span class="mini" aria-hidden="true">
-
-    <!-- Icon -->
-    <svg viewBox="0 0 24 24">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
-    </svg>
-  </span>
-  <span>Social Wave</span>
-</div>
+      <div class="brand">
+        <span class="mini" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </span>
+        <span>Social Wave</span>
+      </div>
 
       <div class="nav-links">
         <a href="feed.html">
@@ -47,18 +45,22 @@
 
   <div class="app">
     <div class="container app-grid">
+
       <aside class="card sidebar">
         <div class="side-title">MENU</div>
+
         <a class="side-item" href="feed.html">
           <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-7h6v7h6V10l-9-7Z"/></svg>
           Home
         </a>
+
         <a class="side-item" href="users.html">
           <svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 0 4.9 14.3l4.4 4.4 1.4-1.4-4.4-4.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
           Explore
         </a>
+
         <a class="side-item active" href="profile.html">
-          <svg viewBox="0 0 24 24"> <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
           Profile
         </a>
       </aside>
@@ -73,10 +75,11 @@
 
         <div class="card profile-hero">
           <span class="avatar" id="meAvatar">U</span>
+
           <div>
             <h2 id="meName">Name</h2>
             <div class="small muted" id="meHandle">@username</div>
-            <div class="bio" id="meBio"></div>
+            <div class="bio" id="meBio">No bio yet.</div>
 
             <div class="pills">
               <span title="Following">
@@ -87,7 +90,7 @@
           </div>
         </div>
 
-        <div class="hr"> </div>
+        <div class="hr"></div>
 
         <div class="card form">
           <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
@@ -98,32 +101,31 @@
           <div class="form-grid" style="margin-top:12px;">
             <div>
               <label for="name">Name</label>
-              <input class="input" id="name" />
+              <input class="input" type="text" id="name" />
             </div>
+
             <div>
               <label for="bio">Bio</label>
-              <input class="input" id="bio" placeholder="Short bio..." />
+              <input class="input" type="text" id="bio" placeholder="Short bio..." />
             </div>
+
             <div>
               <label for="avatar">Profile picture URL (optional)</label>
-              <input class="input" id="avatar" placeholder="https://...." />
+              <input class="input" type="text" id="avatar" placeholder="https://..." />
               <div class="small muted" style="margin-top:6px;">
-                If you leave it empty, it will show initials(like the UI screenshot).
+                If you leave it empty, it will show initials.
               </div>
             </div>
           </div>
         </div>
-
       </main>
+
     </div>
   </div>
 
-<script>
-
-</script>
-<script src="js/storage.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/auth.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
 </body>
 </html>
-
