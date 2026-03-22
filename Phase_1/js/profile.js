@@ -28,9 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function loadProfile() {
-  let user = getCurrentUser();
-/*
-const viewUserId = getData("viewUserId");
+    let user = getCurrentUser();
+
+const params = new URLSearchParams(window.location.search);
+const viewUserId = params.get("id");
 
 if (viewUserId) {
   const users = getData("users") || [];
@@ -41,9 +42,8 @@ if (viewUserId) {
       break;
     }
   }
+}
 
-  saveData("viewUserId", null);
-}*/
 
     if (!user) {
       return;

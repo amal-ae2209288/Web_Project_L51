@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             >
               ${isFollowing ? 'Unfollow' : 'Follow'}
             </button>
-            <a class="btn btn-ghost" href="profile.html">View Profile</a>
+            <a class="btn btn-ghost" href="profile.html?id=${profileUser.id}">View Profile</a>
           </div>
         </article>
       `;
