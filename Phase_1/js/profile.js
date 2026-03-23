@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       users[i].avatar = newAvatar;
 
       saveData("users", users);
-      saveData("currentUser", users[i]);
+      saveData("currentUser", users[i].id);
 
       // update page 
       topUser.textContent = "@" + users[i].username;
