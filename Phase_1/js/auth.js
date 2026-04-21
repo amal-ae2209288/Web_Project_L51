@@ -3,11 +3,11 @@
 // ===================================
 // Authentication
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // ----- LOGIN (index.html) -----
   const loginBtn = document.getElementById('loginBtn');
   if (loginBtn) {
-    loginBtn.addEventListener('click', function(e) {
+    loginBtn.addEventListener('click', function (e) {
       e.preventDefault();
       const username = document.getElementById('loginUser').value.trim();
       const password = document.getElementById('loginPass').value;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ----- SIGNUP (signup.html) -----
   const signupBtn = document.getElementById('signupBtn');
   if (signupBtn) {
-    signupBtn.addEventListener('click', function(e) {
+    signupBtn.addEventListener('click', function (e) {
       e.preventDefault();
 
       const name = document.getElementById('suName').value.trim();
@@ -70,9 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         name: name,
         username: username,
         password: password,
+        email: email,
         bio: '',
         avatar: avatar || '',
-        following: []
+        following: [],
+        createdAt: Date.now()
       };
       users.push(newUser);
       saveData('users', users);
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ----- LOGOUT (any page with logout button) -----
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) {
-    logoutBtn.addEventListener('click', function() {
+    logoutBtn.addEventListener('click', function () {
       saveData('currentUser', null);
       window.location.href = 'index.html';
     });

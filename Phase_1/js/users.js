@@ -98,17 +98,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const targetUserId = this.getAttribute('data-id');
         const users = getData('users') || [];
         const currentUserIndex = users.findIndex(u => u.id === currentUser.id);
+        const targetUserIndex = users.findIndex(u => u.id === targetUserId);
 
-        if (currentUserIndex === -1) return;
+        if (currentUserIndex === -1 || targetUserId === -1) return;
+
 
         const following = users[currentUserIndex].following || [];
         const alreadyFollowing = following.includes(targetUserId);
 
         if (alreadyFollowing) {
           users[currentUserIndex].following = following.filter(id => id !== targetUserId);
+          users[targetUserIndex].followers = (users[targetUserIndex].followers || []).filter(id => id !== currentUser.id);
         } else {
+
           following.push(targetUserId);
           users[currentUserIndex].following = following;
+
+          if (!users[targetUserIndex].followers) users[targetUserIndex].followers = [];
+          users[targetUserIndex].followers.push(currentUser.id);
         }
 
         saveData('users', users);

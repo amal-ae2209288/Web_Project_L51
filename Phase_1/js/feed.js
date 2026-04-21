@@ -124,7 +124,19 @@ document.addEventListener('DOMContentLoaded', function() {
         deletePost(postId);
       });
     });
+  
+    
+    // Delete comment buttons
+document.querySelectorAll('.btn-delete-comment').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const postId = this.dataset.postId;
+    const commentId = this.dataset.commentId;
+    deleteComment(postId, commentId);
+  });
+});
   }
+  
 
    // ========== 3. LIKE / UNLIKE A POST ==========
   function toggleLike(postId) {
@@ -175,6 +187,24 @@ document.addEventListener('DOMContentLoaded', function() {
     saveData('posts', posts);
     loadFeed();
   }
+  function deleteComment(postId, commentId) {
+  let posts = getData('posts') || [];
+  const post = posts.find(p => p.id === postId);
+  if (!post) return;
+
+  const commentIndex = post.comments.findIndex(c => c.id === commentId);
+  if (commentIndex === -1) return;
+
+  const comment = post.comments[commentIndex];
+  if (comment.authorId !== user.id) {
+    alert('You can only delete your own comments');
+    return;
+  }
+
+  post.comments.splice(commentIndex, 1);
+  saveData('posts', posts);
+  loadFeed(); // re-render
+}
   // ========== 6. CREATE A NEW POST ==========
   // check buttons exist 
   if (postBtn) {
@@ -200,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
       loadFeed(); 
     });
   }
+  
 // ========== START THE WHOLE PROCESS -- load the feeds ==========
   // Initial load
   loadFeed();
