@@ -1,20 +1,16 @@
-
 /* eslint-disable @typescript-eslint/no-require-imports */
-// Load JSON files (exported from Phase 1 localStorage)
+const { PrismaClient } = require('@prisma/client');
+const { PrismaBetterSqlite3 } = require('@prisma/adapter-better-sqlite3');
+const Database = require('better-sqlite3');
+const path = require('path');
+
+const dbPath = path.join(__dirname, 'dev.db');
+const connection = new Database(dbPath);
+const adapter = new PrismaBetterSqlite3(connection);
+const prisma = new PrismaClient({ adapter });
+// Load JSON data 
 const users = require('../data/users.json');
 const posts = require('../data/posts.json');
-//  import PrismaClient 
-const { PrismaClient } = require('@prisma/client');
-const { PrismaBetterSQLite3 } = require('@prisma/adapter-better-sqlite3');
-const Database = require('better-sqlite3');
-
-// Create a database connection instance
-const connection = new Database('prisma/dev.db');
-
-// Create the adapter using the connection instance
-const adapter = new PrismaBetterSQLite3(connection);
-
-const prisma = new PrismaClient({ adapter });
 
 async function main() {
     console.log(' Seeding database...');
