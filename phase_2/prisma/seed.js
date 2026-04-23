@@ -1,12 +1,18 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+require("dotenv/config");
 const { PrismaClient } = require('@prisma/client');
 const { PrismaBetterSqlite3 } = require('@prisma/adapter-better-sqlite3');
-const Database = require('better-sqlite3');
-const path = require('path');
 
-const dbPath = path.join(__dirname, 'dev.db');
-const connection = new Database(dbPath);
-const adapter = new PrismaBetterSqlite3(connection);
+const adapter = new PrismaBetterSqlite3(
+  {
+    url: process.env.DATABASE_URL || "file:./prisma/dev.db",
+  },
+   {
+    // Use this only if your existing SQLite DB was created with Prisma's old native driver
+    timestampFormat: "unixepoch-ms",
+  }
+);
+
 const prisma = new PrismaClient({ adapter });
 // Load JSON data 
 const users = require('../data/users.json');
