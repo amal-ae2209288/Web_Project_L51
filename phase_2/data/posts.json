@@ -1,0 +1,129 @@
+[
+    {
+        "id": "p1773870660945-9ylpxgn3f",
+        "authorId": "u1773870660945-ph0ga1bpl",
+        "content": "Working on a clean UI today ✨",
+        "createdAt": 1773868260945,
+        "likes": [
+            "u1773870660945-xwo0j96qv",
+            "u1773870660945-0oibkj5v7",
+            "u1774358898636-oztfe6y24"
+        ],
+        "comments": [
+            {
+                "id": "c1773870833936-6nl8fu5es",
+                "authorId": "u1773870660945-0oibkj5v7",
+                "text": "Great",
+                "createdAt": 1773870833936
+            },
+            {
+                "id": "c1774359720597-vv4hdefxc",
+                "authorId": "u1774358898636-oztfe6y24",
+                "text": "amazing",
+                "createdAt": 1774359720597
+            }
+        ]
+    },
+    {
+        "id": "p1773870660945-wz0b1x88i",
+        "authorId": "u1773870660945-xwo0j96qv",
+        "content": "Excited to have built this social media platform! #coding #webdev",
+        "createdAt": 1773869760945,
+        "likes": [
+            "u1774359441490-vsl1tlgft",
+            "u1776789753988-lqnrb3q8r"
+        ],
+        "comments": [
+            {
+                "id": "c1774358943154-t5w27qmwj",
+                "authorId": "u1774358898636-oztfe6y24",
+                "text": "wow",
+                "createdAt": 1774358943154
+            },
+            {
+                "id": "c1774359506287-ybmfmcnm8",
+                "authorId": "u1774359441490-vsl1tlgft",
+                "text": "Wow",
+                "createdAt": 1774359506287
+            }
+        ]
+    },
+    {
+        "id": "p1773870660945-6awdd1oyf",
+        "authorId": "u1773870660945-wli9slcau",
+        "content": "New blog post soon 👀",
+        "createdAt": 1773870180945,
+        "likes": [
+            "u1773870660945-xwo0j96qv",
+            "u1773870660945-0oibkj5v7"
+        ],
+        "comments": [
+            {
+                "id": "c1773870684775-e8qecqbce",
+                "authorId": "u1773870660945-xwo0j96qv",
+                "text": "cant waitttt !",
+                "createdAt": 1773870684775
+            },
+            {
+                "id": "c1773870848086-djd3bt5n9",
+                "authorId": "u1773870660945-0oibkj5v7",
+                "text": "same here",
+                "createdAt": 1773870848086
+            }
+        ]
+    },
+    {
+        "id": "p1774359466874-udie7zuf6",
+        "authorId": "u1774359441490-vsl1tlgft",
+        "content": "HI new Post soon !",
+        "createdAt": 1774359466874,
+        "likes": [],
+        "comments": []
+    },
+    {
+        "id": "p1774359708966-f0d9erw22",
+        "authorId": "u1774358898636-oztfe6y24",
+        "content": "HI",
+        "createdAt": 1774359708966,
+        "likes": [
+            "u1774359766566-fdhz20pkr"
+        ],
+        "comments": [
+            {
+                "id": "c1774359801997-19s0hzkqe",
+                "authorId": "u1774359766566-fdhz20pkr",
+                "text": "Hello",
+                "createdAt": 1774359801997
+            },
+            {
+                "id": "c1774359909517-j8fpn4sfm",
+                "authorId": "u1774358898636-oztfe6y24",
+                "text": "HI",
+                "createdAt": 1774359909517
+            },
+            {
+                "id": "c1776791049986-4at8a1cwc",
+                "authorId": "u1776789753988-lqnrb3q8r",
+                "text": "ada",
+                "createdAt": 1776791049986
+            }
+        ]
+    },
+    {
+        "id": "p1776880163195-a9b6hy3ed",
+        "authorId": "u1776880064845-g3ctax4xe",
+        "content": "HOLA !",
+        "createdAt": 1776880163195,
+        "likes": [
+            "u1776880064845-g3ctax4xe"
+        ],
+        "comments": [
+            {
+                "id": "c1776880170041-691zgkwd7",
+                "authorId": "u1776880064845-g3ctax4xe",
+                "text": ".",
+                "createdAt": 1776880170041
+            }
+        ]
+    }
+]
