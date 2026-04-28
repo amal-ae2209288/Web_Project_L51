@@ -172,3 +172,42 @@ export async function getFollowingCount(userId) {
     }
   });
 }
+
+
+// STATISTICS
+  export async function getTotalUsers() {
+    return await prisma.user.count();}
+
+  export async function getTotalPosts() {
+    return await prisma.post.count();}
+
+  export async function getTotalComments() {
+    return await prisma.comment.count();}
+
+  export async function getTotalLikes() {
+    return await prisma.like.count();}
+
+  export async function getAveragePostsPerUser() {
+    const usersCount = await prisma.user.count();
+    const postsCount = await prisma.post.count();
+    
+    if (usersCount === 0) {
+      return 0;}
+      
+  return postsCount / usersCount;}
+
+  export async function getTopFollowedUsers() {
+    return await prisma.user.findMany({
+
+      select: 
+      {id: true,
+      name: true,
+      username: true,
+
+      _count: {select: {
+      followers: true}}},
+
+      orderBy: {followers: {
+      _count: "desc"}},
+      take: 5});
+    }
