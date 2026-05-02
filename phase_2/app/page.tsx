@@ -211,7 +211,7 @@ export default function Home() {
 
     const alreadyLiked = post.likes?.some((like) => like.userId === currentUser.id);
 
-    await fetchJson(`/api/posts/${post.id}/like`, {
+    await fetchJson(`/api/posts/${post.id}/likes`, {
       method: alreadyLiked ? "DELETE" : "POST",
       headers: {
         "Content-Type": "application/json",
