@@ -81,6 +81,7 @@ export default function Home() {
   const [signupUsername, setSignupUsername] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
+  const [signupError, setSignupError] = useState("");
 
   const [postContent, setPostContent] = useState("");
   const [commentTextByPost, setCommentTextByPost] = useState<Record<string, string>>({});
@@ -114,16 +115,20 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const savedUserId = localStorage.getItem("currentUserId");
+    const timer = window.setTimeout(() => {
+      const savedUserId = localStorage.getItem("currentUserId");
 
-    if (savedUserId) {
-      loadData(savedUserId).catch(() => {
-        localStorage.removeItem("currentUserId");
-        setCurrentUser(null);
-      });
-    } else {
-      loadData().catch(console.error);
-    }
+      if (savedUserId) {
+        loadData(savedUserId).catch(() => {
+          localStorage.removeItem("currentUserId");
+          setCurrentUser(null);
+        });
+      } else {
+        loadData().catch(console.error);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   async function handleLogin(event: FormEvent) {
@@ -149,27 +154,34 @@ export default function Home() {
 
   async function handleSignup(event: FormEvent) {
     event.preventDefault();
+    setSignupError("");
 
-    const user = await fetchJson<User>("/api/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: signupName,
-        username: signupUsername,
-        email: signupEmail,
-        password: signupPassword,
-      }),
-    });
+    try {
+      const user = await fetchJson<User>("/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: signupName,
+          username: signupUsername,
+          email: signupEmail,
+          password: signupPassword,
+        }),
+      });
 
-    localStorage.setItem("currentUserId", user.id);
-    await loadData(user.id);
+      localStorage.setItem("currentUserId", user.id);
+      await loadData(user.id);
 
-    setSignupName("");
-    setSignupUsername("");
-    setSignupEmail("");
-    setSignupPassword("");
+      setSignupName("");
+      setSignupUsername("");
+      setSignupEmail("");
+      setSignupPassword("");
+    } catch (error) {
+      setSignupError(
+        error instanceof Error ? error.message : "Failed to create account"
+      );
+    }
   }
 
   async function handleLogout() {
@@ -366,6 +378,8 @@ export default function Home() {
               onChange={(event) => setSignupPassword(event.target.value)}
             />
 
+            {signupError && <p style={styles.error}>{signupError}</p>}
+
             <button style={styles.button} type="submit">
               Create Account
             </button>
@@ -560,6 +574,14 @@ const styles: Record<string, CSSProperties> = {
   muted: {
     color: "#667085",
     margin: "4px 0",
+  },
+  error: {
+    color: "#b42318",
+    background: "#fffbfa",
+    border: "1px solid #fecdca",
+    borderRadius: 10,
+    padding: 10,
+    margin: "0 0 12px",
   },
   link: {
     color: "#2563eb",

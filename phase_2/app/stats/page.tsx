@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
@@ -43,9 +44,9 @@ export default function StatsPage() {
           <p style={styles.muted}>Loaded from /api/stats</p>
         </div>
 
-        <a href="/" style={styles.link}>
+        <Link href="/" style={styles.link}>
           Back Home
-        </a>
+        </Link>
       </header>
 
       <section style={styles.grid}>
